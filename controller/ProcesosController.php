@@ -154,27 +154,47 @@ class ProcesosController extends ControladorBase{
         
         $tablas = "public.nivel1, public.nivel2";
         
-        $where = "nivel1.id_nivel2 = nivel2.id_nivel2 AND ";
+        $where = "nivel1.id_nivel2 = nivel2.id_nivel2 AND nivel1.id_nivel1=$_id_nivel1";
         
         $rsniveles = $nivel2->getCondiciones($columnas,$tablas,$where,"nivel1.id_nivel1");
         
         $rsclientes = $clientes->getBy("id_clientes=$_id_clientes");
         
-        $rsnivel0 = $nivel2->getCondiciones($columnas,$tablas,$where,"nivel1.id_nivel1");
+        $rsnivel0 = $nivel2->getCondiciones("*","nivel0","id_nivel0=$_id_nivel0","nivel1.id_nivel1");
         
         
         //valores de bd
         
         $identificacion = $rsclientes[0]->identificacion_clientes;
         $numero_solicitud = "";
-        $nombre_nivel2 = 
+        $nombre_nivel2 =  $rsniveles[0]->nombre_nivel2;
+        $nombre_nivel1 =  $rsniveles[0]->nombre_nivel1;
+        $nombre_nivel0 =  $rsnivel0[0]->nombre_nivel0;
         
-        $funcion = "";
+        $code=$identificacion.','.$numero_solicitud.','.$nombre_nivel2.','.$nombre_nivel1.','.$nombre_nivel0;
+        
+        require dirname(__FILE__).'\..\view\fpdf\fpdf.php';
+        include dirname(__FILE__).'\barcode.php';
+        
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $pdf->SetAutoPageBreak(true, 20);
+        $y = $pdf->GetY();
+        
+        $ubicacion =   dirname(__FILE__).'\..\view\images\codebar'.'\\'.$i.'.png';
+        barcode($ubicacion, $code, 20, 'horizontal', 'code128', true);
+        $pdf->Image($ubicacion,10,$y,50,0,'PNG');
+        $y = $y+15;
+        
+        $pdf->Output();
+        
+        
+       /* $funcion = "";
         $parametros = "";
         
         $documento->setFuncion=$funcion;
         $documento->getParametros=$parametros;
-        $rsrespuesta=$documento->Insert();
+        $rsrespuesta=$documento->Insert();*/
 
          
     }
@@ -200,7 +220,7 @@ class ProcesosController extends ControladorBase{
         foreach ($resultset as $res){
             $i++;
             $code = $res->nombres_clientes;
-            $ubicacion =   dirname(__FILE__).'\..\view\images'.'\\'.$i.'.png';
+            $ubicacion =   dirname(__FILE__).'\..\view\images\codebar'.'\\'.$i.'.png';
             barcode($ubicacion, $code, 20, 'horizontal', 'code128', true);
             $pdf->Image($ubicacion,10,$y,50,0,'PNG');
             $y = $y+15;
