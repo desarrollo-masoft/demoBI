@@ -507,7 +507,7 @@ $(".buscanivel0").click(function(){
                                           <li class="list-group-item list-group-item-info">- INFORMACIÓN FINANCIERA</li>
                                           <li class="list-group-item list-group-item-info">- INFORMACIÓN LEGAL</li>
                                           <li class="list-group-item list-group-item-info">- INSTRUMENTACIÓN DEL PRODUCTO</li>
-                                          <li class="list-group-item list-group-item-info">- PRODUCTO</li>
+                                          <li class="list-group-item list-group-item-info">- DESEMBOLSOS</li>
                                         </ul>
                                 		
                                 	</div>
