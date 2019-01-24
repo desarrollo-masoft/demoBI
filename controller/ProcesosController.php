@@ -25,8 +25,9 @@ class ProcesosController extends ControladorBase{
         
     }
     
-    public function generacb(){
-        
+    public function indexpdf(){
+        session_start();
+        $this->View("FormWizard",array());
         
     }
     
@@ -145,6 +146,8 @@ class ProcesosController extends ControladorBase{
         $_id_nivel1 = (isset($_REQUEST['id_nivel1']))?$_REQUEST['id_nivel1']:'';
         $_id_nivel0 = (isset($_REQUEST['id_nivel0']))?$_REQUEST['id_nivel0']:'';
         $_id_clientes = (isset($_REQUEST['id_clientes']))?$_REQUEST['id_clientes']:'';
+        $_num_propuesta = (isset($_REQUEST['num_propuesta']))?$_REQUEST['num_propuesta']:'';
+        $_tipo_solicitud = (isset($_REQUEST['tipo_solicitud']))?$_REQUEST['tipo_solicitud']:'';
         
         if($_id_nivel1!='' && $_id_nivel0!='' && $_id_clientes!='' && $_id_nivel2!='' )
         {
@@ -175,12 +178,12 @@ class ProcesosController extends ControladorBase{
             //valores de bd
             
             $identificacion = $rsclientes[0]->identificacion_clientes;
-            $numero_solicitud = "";
+            $numero_solicitud = $_num_propuesta;
             //$nombre_nivel2 =  $rsniveles[0]->nombre_nivel2;
             //$nombre_nivel1 =  $rsniveles[0]->nombre_nivel1;
             $nombre_nivel0 =  $rsnivel0[0]->nombre_nivel0;
             $nombreimagen =  $rsconsecutivos[0]->real_consecutivos;
-            $tipocliente = "";
+            $tiposolicitud = $_tipo_solicitud;
 
             $id_nivel2 =  $rsniveles[0]->id_nivel2;
             $id_nivel1 =  $rsniveles[0]->id_nivel1;
@@ -188,7 +191,7 @@ class ProcesosController extends ControladorBase{
             
             //$code=$identificacion.','.$numero_solicitud.','.$nombre_nivel2.','.$nombre_nivel1.','.$nombre_nivel0;
 
-            $code=$id_nivel2.','.$id_nivel1.','.$id_nivel0.','.$tipocliente.','.$identificacion.','.$numero_solicitud;
+            $code=$id_nivel2.','.$id_nivel1.','.$id_nivel0.','.$tiposolicitud.','.$identificacion.','.$numero_solicitud;
             
             require dirname(__FILE__).'\..\view\fpdf\fpdf.php';
             include dirname(__FILE__).'\barcode.php';
@@ -207,10 +210,10 @@ class ProcesosController extends ControladorBase{
 
             
             $ubicacion =   dirname(__FILE__).'\..\view\images\barcode'.'\\'.$nombreimagen.'.png';
-            barcode($ubicacion, $code, 20, 'horizontal', 'code128', true);
-
+            barcode($ubicacion, $code, 20, 'horizontal', 'code128', false);
+            //array('text' => $code, 'drawText' => false)
             $pdf->SetFont('Arial','',15);
-            $pdf->Cell(0,20, $pdf->Image($ubicacion, $mid_x-50, $pdf->GetY(),100,30,'PNG'),0);
+            $pdf->Cell(0,20, $pdf->Image($ubicacion, $mid_x-50, $pdf->GetY(),100,20,'PNG'),0);
             //$pdf->Image($ubicacion,80,$y,100,0,'PNG');
             //$y = $y+15;
 

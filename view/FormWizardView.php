@@ -371,9 +371,26 @@ $(".buscanivel0").click(function(){
             										<button type="button" id="btn_buscar" class="btn btn-info btn-flat">Buscar</button>
             										</span>
             								</div>
+											<input type="hidden" class="form-control" id="tipo_cliente" name="tipo_cliente" value="0" >
             															
             							</div>
-            						</div>            						
+            						</div> 
+									<div class="col-lg-6 col-xs-12 col-md-6">
+										<div class="form-group">
+											<label for="num_propuesta" class="control-label">Numero Propuesta:</label>
+											<input type="text" class="form-control" id="num_propuesta" name="num_propuesta" value="" placeholder="numero..">
+										</div>
+                    		    	</div>
+									<div class="col-lg-6 col-xs-12 col-md-6">
+										<div class="form-group">
+											<label for="num_propuesta" class="control-label">Indice :</label>
+											<select id="tipo_solicitud" name="tipo_solicitud" class="form-control">
+												<option value="titular">TITULAR</option>
+												<option value="solicitante">SOLICITANTE</option>
+											</select>
+										</div>
+                    		    	</div>
+									     						
             					</div> 
             					<br>
             					<br>

@@ -62,6 +62,7 @@ $controladores=(isset($_SESSION['controladores']))?$_SESSION['controladores']: a
                   <li style="<?php echo getcontrolador("MenuProcesos",$controladores) ?>"  ><a    ><i class="fa fa-users"></i> Procesos <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                        <li style="<?php echo getcontrolador("Pedidos",$controladores) ?>"><a href="index.php?controller=Procesos&action=index">Datos</a></li>
+                       <li style="<?php echo getcontrolador("Pedidos",$controladores) ?>"><a href="index.php?controller=Procesos&action=indexpdf">GenerarPdf</a></li>
                    </ul>
                   </li>
                 
