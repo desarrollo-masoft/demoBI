@@ -28,7 +28,7 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="fotografias_usuarios/logo.png" alt="IMG">
+					<img src="view/images/logoInternacional.jpg" alt="IMG">
 				</div>
 
 				

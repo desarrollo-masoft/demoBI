@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="es">
       <head>
-        <meta charset="utf-8"/>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>Procesos</title>
 
 
@@ -98,64 +99,73 @@ var cedula_clientes = $("#cedula_clientes").val();
 	});
 
 	$("#cedula_clientes").focusout(function(){
-		
-		if(validarcedula()){
+		/*para evitar que se realice el ajax*/
+		if(1<0){
+			if(validarcedula()){
 				
-			$.ajax({
-				url:'index.php?controller=Clientes&action=AutocompleteDevuelveNombres',
-				type:'POST',
-				dataType:'json',
-				data:{cedula_clientes:$('#cedula_clientes').val()}
-			}).done(function(respuesta){
-
-				if(parseInt(respuesta.id_clientes)>0){
-					
-					$('.nav-tabs a[href="#nivel2"]').tab('show');
-					$('#id_clientes').val(respuesta.id_clientes);
-				}else{
-					 Swal.fire('cliente no se encuentra registrado');
-				}
+    			$.ajax({
+    				url:'index.php?controller=Clientes&action=AutocompleteDevuelveNombres',
+    				type:'POST',
+    				dataType:'json',
+    				data:{cedula_clientes:$('#cedula_clientes').val()}
+    			}).done(function(respuesta){
+    
+    				if(parseInt(respuesta.id_clientes)>0){
+    					
+    					$('.nav-tabs a[href="#nivel2"]').tab('show');
+    					$('#id_clientes').val(respuesta.id_clientes);
+    				}else{
+    					 Swal.fire('cliente no se encuentra registrado');
+    				}
+    			
+    			}).fail(function(respuesta) {
+    
+    				$('#id_clientes').val("");
+    				
+    			
+    			});
 			
-			}).fail(function(respuesta) {
-
-				$('#id_clientes').val("");
-				
-			
-			});
 
 		}else{
 			Swal.fire('Ingrese un identificaci�n v�lida');
-		}  		
+		}
+	}  		
 	});
 	
 	$("#btn_buscar").click(function(){
-		   if(validarcedula()){
-				
-			$.ajax({
-				url:'index.php?controller=Clientes&action=AutocompleteDevuelveNombres',
-				type:'POST',
-				dataType:'json',
-				data:{cedula_clientes:$('#cedula_clientes').val()}
-			}).done(function(respuesta){
 
-				if(parseInt(respuesta.id_clientes)>0){
-					
-					$('.nav-tabs a[href="#nivel2"]').tab('show');
-					$('#id_clientes').val(respuesta.id_clientes);
-				}else{
-					 Swal.fire('cliente no se encuentra registrado');
-				}
-			
-			}).fail(function(respuesta) {
+		/*para evitar que se realice el ajax*/
+		if(1<0){
+			if(validarcedula()){
 
-				$('#id_clientes').val("");
+			   
+        			$.ajax({
+        				url:'index.php?controller=Clientes&action=AutocompleteDevuelveNombres',
+        				type:'POST',
+        				dataType:'json',
+        				data:{cedula_clientes:$('#cedula_clientes').val()}
+        			}).done(function(respuesta){
+        
+        				if(parseInt(respuesta.id_clientes)>0){
+        					
+        					$('.nav-tabs a[href="#nivel2"]').tab('show');
+        					$('#id_clientes').val(respuesta.id_clientes);
+        				}else{
+        					 Swal.fire('cliente no se encuentra registrado');
+        				}
+        			
+        			}).fail(function(respuesta) {
+        
+        				$('#id_clientes').val("");
+        				
+        			
+        			});
 				
-			
-			});
 
 			}else{
 				Swal.fire('Ingrese un identificaci�n v�lida');
-			}  		
+			}
+		}  		
 	});
 
 	$(".buscanivel2").click(function(){
@@ -259,43 +269,43 @@ $(".buscanivel0").click(function(){
 	  	//$('.buscanivel1').removeClass("rojo");
 	  	$( "#respuestanivel0" ).remove();
 	  	
-		
-		$.ajax({
-			url:'index.php?controller=Procesos&action=buscanivel0',
-			type:'POST',
-			/*dataType:'json',*/
-			data:{nombre_nivel:$(this).val()}
-		}).done(function(respuesta){				
-			 try {
-				 //console.log(respuesta);
-				 objeto = JSON.parse(respuesta);
-				
-				if(parseInt(objeto[0].id_nivel0)>0){	
-					var nombre_nivel = 	objeto[0].nombre_nivel0;		
-					$('#id_nivel0').val(objeto[0].id_nivel0);
-					$('[value="'+nombre_nivel.toLowerCase()+'"]').after('<span id="respuestanivel0" class="glyphicon glyphicon-ok text-success"></span>');
-
-				}
-
-                 
-             }
-             catch (error) {
-                 if(error instanceof SyntaxError) {
-                     let mensaje = error.message;
-                     console.log('ERROR EN LA SINTAXIS:', mensaje);
-                 } else {
-                     throw error; // si es otro error, que lo siga lanzando
+		if(1<0){
+    		$.ajax({
+    			url:'index.php?controller=Procesos&action=buscanivel0',
+    			type:'POST',
+    			/*dataType:'json',*/
+    			data:{nombre_nivel:$(this).val()}
+    		}).done(function(respuesta){				
+    			 try {
+    				 //console.log(respuesta);
+    				 objeto = JSON.parse(respuesta);
+    				
+    				if(parseInt(objeto[0].id_nivel0)>0){	
+    					var nombre_nivel = 	objeto[0].nombre_nivel0;		
+    					$('#id_nivel0').val(objeto[0].id_nivel0);
+    					$('[value="'+nombre_nivel.toLowerCase()+'"]').after('<span id="respuestanivel0" class="glyphicon glyphicon-ok text-success"></span>');
+    
+    				}
+    
+                     
                  }
-             }
-			
-		
-		}).fail(function(respuesta) {
-
-			$('#id_clientes').val("");
-			
-		
-		});
-			
+                 catch (error) {
+                     if(error instanceof SyntaxError) {
+                         let mensaje = error.message;
+                         console.log('ERROR EN LA SINTAXIS:', mensaje);
+                     } else {
+                         throw error; // si es otro error, que lo siga lanzando
+                     }
+                 }
+    			
+    		
+    		}).fail(function(respuesta) {
+    
+    			$('#id_clientes').val("");
+    			
+    		
+    		});
+		}	
 	});
 	
 });
@@ -358,7 +368,7 @@ $(".buscanivel0").click(function(){
                     		<!-- SECTION 1 -->
                             <h4></h4>
                             <section>
-                                <h3>Vadidacion Informaci�n</h3>
+                                <h3>Validación Información</h3>
                             	<div class="row">
             						<div class="col-xs-12 col-md-6 col-lg-6 ">
             							<div class="form-group">
@@ -385,12 +395,12 @@ $(".buscanivel0").click(function(){
 										<div class="form-group">
 											<label for="num_propuesta" class="control-label">Indice :</label>
 											<select id="tipo_solicitud" name="tipo_solicitud" class="form-control">
-												<option value="titular">TITULAR/SOLICITANTE</option>
-												<option value="solicitante">SOLICITANTE</option>
+												<option value="titular/solicitante">TITULAR/SOLICITANTE</option>
+												<option value="garante">GARANTE</option>
 											</select>
 										</div>
                     		    	</div>
-									     						
+									     				
             					</div> 
             					<br>
             					<br>
@@ -483,6 +493,27 @@ $(".buscanivel0").click(function(){
                                 <h3>Nivel 0</h3>
                                 
                                 <div class="row">
+                                	<div class="col-lg-6 col-md-6">
+                                		<ul class="list-group">
+                                          <li class="list-group-item list-group-item-info">- INFORMACIÓN BÁSICA</li>
+                                          <li class="list-group-item list-group-item-info">- SELECCIONE INTERVINIENTE</li>
+                                          <li class="list-group-item list-group-item-info">- NÚMERO IDENTIFICACIÓN</li>
+                                          <li class="list-group-item list-group-item-info">- NÚMERO PROPUESTA</li>
+                                        </ul>
+                                		
+                                	</div>
+                                	<div class="col-lg-6 col-md-6">
+                                		<ul class="list-group">                                         
+                                          <li class="list-group-item list-group-item-info">- INFORMACIÓN FINANCIERA</li>
+                                          <li class="list-group-item list-group-item-info">- INFORMACIÓN LEGAL</li>
+                                          <li class="list-group-item list-group-item-info">- INSTRUMENTACIÓN DEL PRODUCTO</li>
+                                          <li class="list-group-item list-group-item-info">- PRODUCTO</li>
+                                        </ul>
+                                		
+                                	</div>
+                                </div>
+                                
+                                <!-- <div class="row">
                                 	<div class="col-lg-3 col-md-3">
                 						 <button class="buscanivel0"  type="button" value="informacion basica" class="btn  btn-block btn-default">
                                           <span class="glyphicon glyphicon-folder-open"></span> Informacion Basica
@@ -493,7 +524,7 @@ $(".buscanivel0").click(function(){
                                           <span class="glyphicon glyphicon-folder-open"></span> Seleccione Interviniente
                                         </button>
                 					</div>
-                                </div>
+                                </div> -->
                                 
                                 <input type="hidden" id="id_nivel0" name="id_nivel0" value="0" />
                             </section>
@@ -532,7 +563,8 @@ $(".buscanivel0").click(function(){
 
  <script type="text/javascript">
  $(document).ready(function(){
-	 $('#cedula_clientes').inputmask('9999999999',{"placeholder": ""});
+	 $('#cedula_clientes').inputmask('9999999999999',{"placeholder": ""});
+	 $('#num_propuesta').inputmask('9999999999',{"placeholder": ""});
 	 
  });
 

@@ -14,11 +14,17 @@ $(function(){
         onStepChanging: function (event, currentIndex, newIndex) { 
         	
         	//console.log(newIndex);        	
-        	if(newIndex===1){        		
+        	/*if(newIndex===1){        		
         		if($("#id_clientes").val()==0){        			
         			return false;
         		}
-        	}        	
+        	}*/
+        	if(newIndex===1){        		
+        		if($("#cedula_clientes").val()==""){        			
+        			return false;
+        		}
+        	}
+        	
         	if(newIndex===2){        		
         		if($("#id_nivel2").val()==0){        			
         			return false;
