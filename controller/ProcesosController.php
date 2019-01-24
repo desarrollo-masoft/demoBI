@@ -202,7 +202,7 @@ class ProcesosController extends ControladorBase{
             $y = $pdf->GetY();
             //$x = $pdf->GetX();
             $mid_x = $pdf->GetPageWidth() / 2;
-            $octavo_y = $pdf->GetPageHeight()/8;
+            $octavo_y = $pdf->GetPageHeight()/7;
             
 
             
@@ -210,7 +210,7 @@ class ProcesosController extends ControladorBase{
             barcode($ubicacion, $code, 20, 'horizontal', 'code128', true);
 
             $pdf->SetFont('Arial','',15);
-            $pdf->Cell(15,15, $pdf->Image($ubicacion, $pdf->GetX(), $pdf->GetY(),100,15,'PNG'),0);
+            $pdf->Cell(0,20, $pdf->Image($ubicacion, $mid_x-50, $pdf->GetY(),100,30,'PNG'),0);
             //$pdf->Image($ubicacion,80,$y,100,0,'PNG');
             //$y = $y+15;
 
