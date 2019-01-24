@@ -124,7 +124,7 @@ var cedula_clientes = $("#cedula_clientes").val();
 			});
 
 		}else{
-			Swal.fire('Ingrese un identificación válida');
+			Swal.fire('Ingrese un identificaciï¿½n vï¿½lida');
 		}  		
 	});
 	
@@ -154,7 +154,7 @@ var cedula_clientes = $("#cedula_clientes").val();
 			});
 
 			}else{
-				Swal.fire('Ingrese un identificación válida');
+				Swal.fire('Ingrese un identificaciï¿½n vï¿½lida');
 			}  		
 	});
 
@@ -296,29 +296,6 @@ $(".buscanivel0").click(function(){
 		
 		});
 			
-});
-
-$( "#wizard" ).submit(function( event ) {
-
-	var dataString = $('#wizard').serialize();
-
-	  $.ajax({
-        beforeSend: function(objeto){
-          
-        },
-        url: 'index.php?controller=Procesos&action=generapdf',
-        type: 'POST',
-        data: {id_usuario:_id_usuario,razon_solicitud:observacion},
-        success: function(x){
-          console.log(x);
-          
-        },
-       error: function(jqXHR,estado,error){
-         //$("#resultados").html("Ocurrio un error al cargar la informacion de Usuarios..."+estado+"    "+error);
-       }
-     });
-	  event.preventDefault();
-	  
 	});
 	
 });
@@ -377,11 +354,11 @@ $( "#wizard" ).submit(function( event ) {
                     <br>
                     <br>
                      <div class="wrapper">
-                        <form action="" id="wizard">
+                        <form action="index.php?controller=Procesos&action=generapdf" method="post" enctype="multipart/form-data" id="wizard">
                     		<!-- SECTION 1 -->
                             <h4></h4>
                             <section>
-                                <h3>Vadidacion Información</h3>
+                                <h3>Vadidacion Informaciï¿½n</h3>
                             	<div class="row">
             						<div class="col-xs-12 col-md-6 col-lg-6 ">
             							<div class="form-group">
@@ -422,7 +399,7 @@ $( "#wizard" ).submit(function( event ) {
                 					</div>
                 				</div>
                 				
-                				<input type="hidden" id="id_nivel2" value="0" />
+                				<input type="hidden" id="id_nivel2" name="id_nivel2" value="0" />
                             	
                             	
                             </section>
@@ -479,7 +456,7 @@ $( "#wizard" ).submit(function( event ) {
                 				</div>
                 				
                 				                				
-                				<input type="hidden" id="id_nivel1" value="0" />
+                				<input type="hidden" id="id_nivel1" name="id_nivel1" value="0" />
                                 
                             </section>
             
@@ -501,7 +478,7 @@ $( "#wizard" ).submit(function( event ) {
                 					</div>
                                 </div>
                                 
-                                <input type="hidden" id="id_nivel0" value="0" />
+                                <input type="hidden" id="id_nivel0" name="id_nivel0" value="0" />
                             </section>
        					 </form>
 					</div>
