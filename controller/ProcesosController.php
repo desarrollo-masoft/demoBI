@@ -205,7 +205,7 @@ class ProcesosController extends ControladorBase{
             $y = $pdf->GetY();
             //$x = $pdf->GetX();
             $mid_x = $pdf->GetPageWidth() / 2;
-            $octavo_y = $pdf->GetPageHeight()/7;
+            $octavo_y = $pdf->GetPageHeight()/3;
             
 
             
@@ -213,13 +213,17 @@ class ProcesosController extends ControladorBase{
             barcode($ubicacion, $code, 20, 'horizontal', 'code128', false);
             //array('text' => $code, 'drawText' => false)
             $pdf->SetFont('Arial','',15);
+            $pdf->SetXY(20, 25);
             $pdf->Cell(0,20, $pdf->Image($ubicacion, $mid_x-50, $pdf->GetY(),100,20,'PNG'),0);
             //$pdf->Image($ubicacion,80,$y,100,0,'PNG');
             //$y = $y+15;
 
-            $pdf->SetFont('Arial','',15);
-            $pdf->Cell(40,20);
-            $pdf->Text($mid_x - ($pdf->GetStringWidth($nombre_nivel0) / 2), $octavo_y, $nombre_nivel0);
+            $pdf->SetFont('Arial','',50);
+            //$y = $pdf->GetY();
+            $pdf->SetXY(20, $y+45);
+            $pdf->MultiCell(0,$octavo_y, $nombre_nivel0.'ESTO ES UNA PRUEBA' ,1,'C');
+            //$pdf->MultiCell(0,0, $pdf->Text(20,$octavo_y,$nombre_nivel0),0,'C');
+            //$pdf->Text($mid_x - ($pdf->GetStringWidth($nombre_nivel0) / 2), $octavo_y, $nombre_nivel0);
             
             $pdf->Output();
             

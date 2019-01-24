@@ -385,7 +385,7 @@ $(".buscanivel0").click(function(){
 										<div class="form-group">
 											<label for="num_propuesta" class="control-label">Indice :</label>
 											<select id="tipo_solicitud" name="tipo_solicitud" class="form-control">
-												<option value="titular">TITULAR</option>
+												<option value="titular">TITULAR/SOLICITANTE</option>
 												<option value="solicitante">SOLICITANTE</option>
 											</select>
 										</div>
