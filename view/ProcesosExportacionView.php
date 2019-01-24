@@ -139,8 +139,8 @@
             	                   <td > <?php echo $i; ?>  </td>
             		               <td > <?php echo date("d/m/Y", strtotime($res->creado)); ?>     </td> 
             		               <td > <?php echo date("d/m/Y", strtotime($res->modificado)); ?>     </td>
-            		               <td > <?php echo date("H:m:i", strtotime($res->creado)); ?>     </td> 
-            		               <td > <?php echo date("H:m:i", strtotime($res->modificado)); ?>     </td>
+            		               <td > <?php echo date("H:i:s", strtotime($res->creado)); ?>     </td> 
+            		               <td > <?php echo date("H:i:s", strtotime($res->modificado)); ?>     </td>
             		               <td > <?php echo $res->cantidad_imagenes_procesos_exportacion; ?>     </td> 
             		               <td > <?php echo $res->cantidad_indices_procesos_exportacion; ?>     </td>
             		               <td>
