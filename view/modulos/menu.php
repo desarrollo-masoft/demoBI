@@ -64,7 +64,8 @@ $controladores=(isset($_SESSION['controladores']))?$_SESSION['controladores']: a
                        <li style="<?php echo getcontrolador("Pedidos",$controladores) ?>"><a href="index.php?controller=Procesos&action=index">Datos</a></li>
                        <li style="<?php echo getcontrolador("Pedidos",$controladores) ?>"><a href="index.php?controller=Procesos&action=indexpdf">GenerarPdf</a></li>
                        <li style="<?php echo getcontrolador("ProcesosExportacion",$controladores) ?>"><a href="index.php?controller=ProcesosExportacion&action=index">Procesos Exportacion</a></li>
-                   </ul>
+                       <li style="<?php echo getcontrolador("ProcesosErrores",$controladores) ?>"><a href="index.php?controller=ProcesosErrores&action=index">Errores</a></li>
+                       </ul>
                   </li>
                 
                 
