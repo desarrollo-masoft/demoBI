@@ -16,8 +16,8 @@
     		<!-- Font Awesome -->
 		    <link href="view/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 		    <!-- NProgress -->
-		    <link href="view/vendors/nprogress/nprogress.css" rel="stylesheet">
-		    
+			<link href="view/vendors/nprogress/nprogress.css" rel="stylesheet">
+			 
 		   
 		    <!-- Custom Theme Style -->
 		    <link href="view/build/css/custom.min.css" rel="stylesheet">
@@ -221,7 +221,7 @@ var cedula_clientes = $("#cedula_clientes").val();
 
 	$(".buscanivel1").click(function(){
 		
-	  	$( "#respuestanivel1" ).remove();
+	  	$( ".respuestanivel1" ).remove();
 	  	//$('.buscanivel1').removeClass("rojo");
 	  	
 		$.ajax({
@@ -236,7 +236,7 @@ var cedula_clientes = $("#cedula_clientes").val();
 				if(parseInt(objeto[0].id_nivel1)>0){	
 					var nombre_nivel = 	objeto[0].nombre_nivel1;		
 					$('#id_nivel1').val(objeto[0].id_nivel1);
-					$('[value="'+nombre_nivel.toLowerCase()+'"]').after('<span id="respuestanivel1" class="glyphicon glyphicon-ok text-success"></span>');
+					$('[value="'+nombre_nivel.toLowerCase()+'"]').after('<span id="" class="respuestanivel1 glyphicon glyphicon-ok text-success"></span>');
 
 				}
 
@@ -409,23 +409,24 @@ $(".buscanivel0").click(function(){
             				<!-- SECTION 2 -->
                             <h4></h4>
                             <section>
-                            	<h3>Nivel2</h3>
-                            	<div class="row">
-                					<div class="col-lg-4">
-                						 <button class="buscanivel2" type="button" value="corporativo" class="btn  btn-block btn-default">
-                                          <span class="glyphicon glyphicon-folder-open"></span> CORPORATIVO
-                                        </button> 
-                					</div>
-                				</div>
-                				
-                				<div class="row">
-                					<div class="col-lg-4">
-                						 <button class="buscanivel2"  type="button" value="personal" class="btn  btn-block btn-default">
-                                          <span class="glyphicon glyphicon-folder-open"></span> PERSONAL
-                                        </button>
-                					</div>
-                				</div>
-                				
+								<h3>Nivel2</h3>
+								
+
+								<div class="row">
+									<div class="col-lg-4">
+										<button type="button" value="corporativo" class="buscanivel2 btn btn-default btn-lg">
+											<span class="glyphicon glyphicon-folder-open"></span> &nbsp;&nbsp;&nbsp;CORPORATIVO
+										</button>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-4">
+										<button type="button" value="personal" class="buscanivel2 btn btn-default btn-lg">
+											<span class="glyphicon glyphicon-folder-open"></span> &nbsp;&nbsp;&nbsp;PERSONAL
+										</button>
+									</div>
+								</div>
+                            	                				
                 				<input type="hidden" id="id_nivel2" name="id_nivel2" value="0" />
                             	
                             	
@@ -437,46 +438,50 @@ $(".buscanivel0").click(function(){
                                 <h3 di="titulonivel1" style="margin-bottom: 16px;">NIVEL 1</h3>
                                 <div  >
                                 <div class="row">
-                					<div class="col-lg-3 col-md-3">
-                						 <button class="buscanivel1"  type="button" value="analisis" class="btn  btn-block btn-default">
-                                          <span class="glyphicon glyphicon-folder-open"></span> ANALISIS
+                					<div class="col-lg-4 col-md-4">
+                						 <button class="buscanivel1 btn btn-default "  type="button" value="analisis" >
+                                          <span class="glyphicon glyphicon-folder-open"></span> &nbsp;&nbsp;&nbsp;ANALISIS
                                         </button>
                 					</div>
-                					<div class="col-lg-3 col-md-3">
-                						 <button class="buscanivel1"  type="button" value="garantia" class="btn  btn-block btn-default">
-                                          <span class="glyphicon glyphicon-folder-open"></span> GARANTIA
+                					<div class="col-lg-4 col-md-4">
+                						 <button class="buscanivel1 btn btn-default "  type="button" value="garantia" >
+                                          <span class="glyphicon glyphicon-folder-open"></span> &nbsp;&nbsp;&nbsp;GARANTIA
                                         </button>
                 					</div>
-                					<div class="col-lg-3 col-md-3">
-                						 <button class="buscanivel1"  type="button" value="seguros" class="btn  btn-block btn-default">
-                                          <span class="glyphicon glyphicon-folder-open"></span> SEGUROS
+                					<div class="col-lg-4 col-md-4">
+                						 <button class="buscanivel1 btn btn-default "  type="button" value="seguros" >
+                                          <span class="glyphicon glyphicon-folder-open"></span> &nbsp;&nbsp;&nbsp;SEGUROS
                                         </button>
                 					</div>
-                					<div class="col-lg-3 col-md-3">
-                						 <button class="buscanivel1"  type="button" value="desembolso" class="btn  btn-block btn-default">
-                                          <span class="glyphicon glyphicon-folder-open"></span> DESEMBOLSO
+                					
+								</div>
+								<div class="row">
+									<div class="col-lg-4 col-md-4">
+                						 <button class="buscanivel1 btn btn-default "  type="button" value="desembolso" >
+                                          <span class="glyphicon glyphicon-folder-open"></span> &nbsp;&nbsp;&nbsp;DESEMBOLSO
+                                        </button>
+									</div>
+									<div class="col-lg-4 col-md-4">
+                						 <button class="buscanivel1 btn btn-default"  type="button" value="avaluos" >
+                                          <span class="glyphicon glyphicon-folder-open"></span> &nbsp;&nbsp;&nbsp;AVALUOS
                                         </button>
                 					</div>
-                				</div>
+                					<div class="col-lg-4 col-md-4">
+                						 <button class="buscanivel1 btn btn-default "  type="button" value="codeudor" >
+                                          <span class="glyphicon glyphicon-folder-open"></span> &nbsp;&nbsp;&nbsp;CODEUDOR
+                                        </button>
+                					</div>
+								</div>
                 				<div class="row">
-                					<div class="col-lg-3 col-md-3">
-                						 <button class="buscanivel1"  type="button" value="avaluos" class="btn  btn-block btn-default">
-                                          <span class="glyphicon glyphicon-folder-open"></span> AVALUOS
+                					
+                					<div class="col-lg-4 col-md-4">
+                						 <button class="buscanivel1 btn btn-default "  type="button" value="garante" >
+                                          <span class="glyphicon glyphicon-folder-open"></span> &nbsp;&nbsp;&nbsp;GARANTE
                                         </button>
                 					</div>
-                					<div class="col-lg-3 col-md-3">
-                						 <button class="buscanivel1"  type="button" value="codeudor" class="btn  btn-block btn-default">
-                                          <span class="glyphicon glyphicon-folder-open"></span> CODEUDOR
-                                        </button>
-                					</div>
-                					<div class="col-lg-3 col-md-3">
-                						 <button class="buscanivel1"  type="button" value="garante" class="btn  btn-block btn-default">
-                                          <span class="glyphicon glyphicon-folder-open"></span> GARANTE
-                                        </button>
-                					</div>
-                					<div class="col-lg-3 col-md-3">
-                						 <button class="buscanivel1"  type="button" value="actualizaciones" class="btn  btn-block btn-default">
-                                          <span class="glyphicon glyphicon-folder-open"></span> ACTUALIZACIONES
+                					<div class="col-lg-4 col-md-4">
+                						 <button class="buscanivel1 btn btn-default "  type="button" value="actualizaciones" >
+                                          <span class="glyphicon glyphicon-folder-open"></span> &nbsp;&nbsp;&nbsp;ACTUALIZACIONES
                                         </button>
                 					</div>
                 				</div>
